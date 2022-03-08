@@ -25,13 +25,26 @@ int main(int argc, char *argv[])
  *
  * 4. Que signifie l’instruction Class Widget: public QWidget ?
  *
-5. Que signifie l’instruction Widget::Widget(QWidget *parent) : QWidget(parent) ?
-6. Quel est le diagramme d’objet correspondant à votre programme ?
-7. Donnez les lignes qui sont exécutées après un appui sur le bouton.
-
-* 8. Expliquez pourquoi lorsque l’on clique sur la croix, l’application se ferme.
-* Lorsque l'on clique sur la croix, l'application se ferme car c'est un bouton.
-* Comme :
-*   QPushButton * m_pushbutton = new QPushButton("Quitter");
+ *  "The QWidget class is the base class of all user interface objects."
+ *  On initialise une classe de QWidget
+ *
+ * 5. Que signifie l’instruction Widget::Widget(QWidget *parent) : QWidget(parent) ?
+ *
+ *  C'est la déclaration du constructeur du widget, elle prend comme widget un parent,
+ *  cette assignation permet de mieux gérer la mémoire, si le parent est détruis tout les enfants le seront, dans la déclaration de la classe
+ *   le parent est definis comme nullptr s'il n'est pas défini,
+ *
+ * 6. Quel est le diagramme d’objet correspondant à votre programme ?
+ *
+ *          ////
+ *
+ * 7. Donnez les lignes qui sont exécutées après un appui sur le bouton.
+ *
+ *          ////
+ *
+ * 8. Expliquez pourquoi lorsque l’on clique sur la croix, l’application se ferme.
+ * Lorsque l'on clique sur la croix, l'application se ferme car c'est un bouton.
+ * Comme :
+ *   QPushButton * m_pushbutton = new QPushButton("Quitter");
     connect(m_pushbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
-*/
+ */

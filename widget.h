@@ -5,7 +5,6 @@
 
 #include <QLineEdit>
 #include <QLabel>
-#include <QLCDNumber>
 
 
 class Widget : public QWidget
@@ -22,11 +21,6 @@ private:
 
     // Password generator :
     QLabel * lpswd;
-
-//    //------------------LCD Counter with increment and decrement button------------------
-//    QLCDNumber * lcdCount;
-//    int x=0;
-//    //------------------LCD Counter with increment and decrement button------------------
 };
 #endif // WIDGET_H
 
