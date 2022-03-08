@@ -8,6 +8,9 @@ class Person
 public:
     Person();
     QString transformName(QString aFirstName);
+
+    // Password generator :
+    QString createPswd(int length);
 };
 
 #endif // PERSON_H

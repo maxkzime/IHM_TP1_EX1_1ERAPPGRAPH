@@ -20,6 +20,9 @@ private:
     QLineEdit * leName;
     QLabel * lGreetings;
 
+    // Password generator :
+    QLabel * lpswd;
+
 //    //------------------LCD Counter with increment and decrement button------------------
 //    QLCDNumber * lcdCount;
 //    int x=0;
