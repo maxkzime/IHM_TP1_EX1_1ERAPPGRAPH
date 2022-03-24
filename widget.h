@@ -5,6 +5,7 @@
 
 #include <QLineEdit>
 #include <QLabel>
+#include <QLCDNumber>
 
 
 class Widget : public QWidget
@@ -13,14 +14,15 @@ class Widget : public QWidget
 
 public:
     Widget(QWidget *parent = nullptr);
-    ~Widget();
 
 private:
     QLineEdit * leName;
     QLabel * lGreetings;
 
     // Password generator :
-    QLabel * lpswd;
+    QLineEdit * lpswd;
+    QLCDNumber * count;
+
 };
 #endif // WIDGET_H
 

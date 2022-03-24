@@ -4,8 +4,10 @@
 #include <QPushButton>
 #include <QGroupBox>
 #include <QSlider>
+#include <QLCDNumber>
+#include <QApplication>
 
-#include <person.h>
+#include "person.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -36,10 +38,14 @@ Widget::Widget(QWidget *parent)
 
 
     //------------------Password generator------------------
-    QGroupBox *qGroupBoxDate = new QGroupBox("Génération mot de passe :"); /* Création du QGroupBox */
+    QGroupBox *qGroupBox = new QGroupBox("Génération mot de passe :"); /* Création du QGroupBox */
     QVBoxLayout *layoutCreatePswd = new QVBoxLayout(); /* Création du layout */
 
-    lpswd = new QLabel();
+
+    QLabel * pswdTitle = new QLabel("Mot de passse : ");
+    layoutCreatePswd->addWidget(pswdTitle);
+
+    lpswd = new QLineEdit();
     layoutCreatePswd->addWidget(lpswd);
 
     /* Création du slider */
@@ -48,22 +54,28 @@ Widget::Widget(QWidget *parent)
     m_slider->setOrientation(Qt::Horizontal); /* orientation du slider */
     layoutCreatePswd->addWidget(m_slider);
 
+    count = new QLCDNumber();
+    count->setSegmentStyle(QLCDNumber::Flat);
+    count->setPalette(Qt::cyan);
+    layoutCreatePswd->addWidget(count);
+
     /* signaux du slider pour actualisation */
     connect(m_slider, QOverload<int>::of(&QSlider::valueChanged),
-            [=](int i){Person p; lpswd->setText("Mot de passse : " + p.createPswd(i)); });
+            [=](int i){Person p; lpswd->setText(p.createPswd(i)); lpswd->selectAll(); count->display(i); });
 
 
-    qGroupBoxDate->setLayout(layoutCreatePswd);
-    gLayout->addWidget(qGroupBoxDate,4,0);/* Ajout du layout au layout general */
+    QPushButton * m_pushbutton = new QPushButton("Quitter");
+    connect(m_pushbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
+
+    gLayout->addWidget(m_pushbutton,5,2);
+
+    qGroupBox->setLayout(layoutCreatePswd);
+    gLayout->addWidget(qGroupBox,4,0);/* Ajout du layout au layout general */
 
     //------------------Password generator------------------
 
     setWindowTitle("Mon premier programme");
     setLayout(gLayout);
 
-}
-
-Widget::~Widget()
-{
 }
 

@@ -4,12 +4,12 @@
 #include <chrono> // pour la seed du générateur de nombre aléatoire
 
 Person::Person()
-{
-}
+{}
+
+
 QString Person::transformName(QString aFirstName)
-{
-    return aFirstName.toUpper();
-}
+{return aFirstName.toUpper();}
+
 
 // Password generator :
 QString Person::createPswd(int length)
@@ -27,8 +27,6 @@ QString Person::createPswd(int length)
         char c = (distribNumberDec(gen));
         password += c;
     }
-    for (int i=0; i <=20-length; i++)
-        password += "  ";
 
     return password;
 }
