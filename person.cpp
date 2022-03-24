@@ -1,3 +1,8 @@
+// TP1/EX1/person.cpp
+// exercice 1 : Fabrication d’une première application graphique
+// BODIN Maxime C2
+// 22/03/24
+
 #include "person.h"
 
 #include <random> // pour générer  un nombre aléatoire
