@@ -16,7 +16,7 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
-    QGridLayout * gLayout = new QGridLayout(); /* Création du layout name */
+    QGridLayout * gLayout = new QGridLayout(); /* Création du layout general */
     QTabWidget *onglets = new QTabWidget(); /* Création du système onglets */
 
     //------------------TP1 -  Saisie puis affichage du nom ------------------
